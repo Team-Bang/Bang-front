@@ -14,6 +14,7 @@ import ChangePassword from './components/ChangePassword/ChangePassword'
 import BlogPostIndex from './components/BlogPostRoutes/IndexBlogPost'
 import BlogPostCreate from './components/BlogPostRoutes/CreateBlogPost'
 import BlogPostShow from './components/BlogPostRoutes/ShowBlogPost'
+import BlogPostUpdate from './components/BlogPostRoutes/UpdateBlogPost'
 
 class App extends Component {
   constructor (props) {
@@ -79,6 +80,9 @@ class App extends Component {
           )}/>
           <Route path='/blogposts/:id' render={() => (
             <BlogPostShow user={user} msgAlert={this.msgAlert} />
+          )}/>
+          <AuthenticatedRoute user={user} path='/blogposts/:id/edit' render={() => (
+            <BlogPostUpdate msgAlert={this.msgAlert} user={user} />
           )}/>
         </main>
       </Fragment>

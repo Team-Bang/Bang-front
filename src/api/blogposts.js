@@ -25,3 +25,14 @@ export const blogPostShow = (id) => {
     method: 'GET'
   })
 }
+
+export const blogPostUpdate = (id, blogpost, user) => {
+  return axios({
+    url: apiUrl + '/blogposts/' + id,
+    method: 'PATCH',
+    headers: {
+      'Authorization': `Bearer ${user.token}`
+    },
+    data: { blogpost }
+  })
+}
