@@ -75,13 +75,13 @@ class App extends Component {
           <AuthenticatedRoute user={user} exact path='/blogposts-create' render={() => (
             <BlogPostCreate msgAlert={this.msgAlert} user={user} />
           )} />
-          <Route exact path='/blogposts' render={() => (
+          <Route exact path='/' render={() => (
             <BlogPostIndex msgAlert={this.msgAlert} />
           )}/>
           <Route path='/blogposts/:id' render={() => (
             <BlogPostShow user={user} msgAlert={this.msgAlert} />
           )}/>
-          <AuthenticatedRoute user={user} path='/blogposts/:id/edit' render={() => (
+          <AuthenticatedRoute user={user} exact path='/blogposts/:id/edit' render={() => (
             <BlogPostUpdate msgAlert={this.msgAlert} user={user} />
           )}/>
         </main>

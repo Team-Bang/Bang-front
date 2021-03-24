@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { blogPostShow } from '../../api/blogposts'
-import { withRouter } from 'react-router-dom'
+import { withRouter, Link } from 'react-router-dom'
 import Spinner from 'react-bootstrap/Spinner'
 
 class ShowBlogPost extends Component {
@@ -41,16 +41,17 @@ class ShowBlogPost extends Component {
     } else {
       blogpostJsx = (
         <div>
-          <h4>{blogpost.title}</h4>
+          <h3>{blogpost.title}</h3>
           <p>{blogpost.body}</p>
           <p>Written by: {blogpost.author}</p>
+          <button><Link to={'/blogposts/' + this.props.match.params.id + '/edit/'}>Update Post</Link></button>
         </div>
       )
     }
     return (
       <div className="row">
         <div className="col-sm-10 col-md-8 mx-auto mt-5">
-          <h3>Post</h3>
+          <h4>Post</h4>
           <p>{blogpostJsx}</p>
         </div>
       </div>
