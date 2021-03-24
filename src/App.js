@@ -13,6 +13,7 @@ import ChangePassword from './components/ChangePassword/ChangePassword'
 // IMPORT BLOGPOST CRUD COMPONENTS
 import BlogPostIndex from './components/BlogPostRoutes/IndexBlogPost'
 import BlogPostCreate from './components/BlogPostRoutes/CreateBlogPost'
+import BlogPostShow from './components/BlogPostRoutes/ShowBlogPost'
 
 class App extends Component {
   constructor (props) {
@@ -75,6 +76,9 @@ class App extends Component {
           )} />
           <Route exact path='/blogposts' render={() => (
             <BlogPostIndex msgAlert={this.msgAlert} />
+          )}/>
+          <Route path='/blogposts/:id' render={() => (
+            <BlogPostShow user={user} msgAlert={this.msgAlert} />
           )}/>
         </main>
       </Fragment>
