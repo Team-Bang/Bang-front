@@ -11,6 +11,7 @@ import SignOut from './components/SignOut/SignOut'
 import ChangePassword from './components/ChangePassword/ChangePassword'
 
 // IMPORT BLOGPOST CRUD COMPONENTS
+import BlogPostIndex from './components/BlogPostRoutes/IndexBlogPost'
 import BlogPostCreate from './components/BlogPostRoutes/CreateBlogPost'
 
 class App extends Component {
@@ -72,6 +73,9 @@ class App extends Component {
           <AuthenticatedRoute user={user} exact path='/blogposts-create' render={() => (
             <BlogPostCreate msgAlert={this.msgAlert} user={user} />
           )} />
+          <Route exact path='/blogposts' render={() => (
+            <BlogPostIndex msgAlert={this.msgAlert} />
+          )}/>
         </main>
       </Fragment>
     )
