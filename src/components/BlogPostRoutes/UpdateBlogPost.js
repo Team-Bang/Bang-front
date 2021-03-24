@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import Spinner from 'react-bootstrap/Spinner'
 import { Redirect, withRouter } from 'react-router-dom'
 import BlogPostForm from '../BlogPostForm/BlogPostForm'
 
@@ -29,8 +28,8 @@ class BlogPostUpdate extends Component {
   handleSubmit = (event) => {
     event.preventDefault()
     const { user, match, msgAlert } = this.props
-    const { blogposts } = this.state
-    blogPostUpdate(match.params.id, blogposts, user)
+    const { blogpost } = this.state
+    blogPostUpdate(match.params.id, blogpost, user)
       .then(res => this.setState({ updated: true }))
       .then(() => msgAlert({
         heading: 'Updated Post Successfully',
@@ -47,24 +46,16 @@ class BlogPostUpdate extends Component {
   }
 
   render () {
-    const { blogposts, updated } = this.state
-    if (!blogposts) {
-      return (
-        <Spinner animation="border" role="status">
-          <span className="sr-only">Loading...</span>
-        </Spinner>
-      )
-    }
-
+    const { blogpost, updated } = this.state
     if (updated) {
-      return <Redirect to={`/blogposts/${this.props.match.params.id}`} />
+      return <Redirect to={'/blogposts'} />
     }
 
     return (
       <div>
         <h3>Update Post</h3>
         <BlogPostForm
-          blogpost={blogposts}
+          blogpost={blogpost}
           handleSubmit={this.handleSubmit}
           handleChange={this.handleChange}
         />

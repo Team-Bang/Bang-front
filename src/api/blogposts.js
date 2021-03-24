@@ -20,6 +20,7 @@ export const blogPostIndex = (blogpost, user) => {
 }
 
 export const blogPostShow = (id) => {
+  console.log('this is blogpostshow id', id)
   return axios({
     url: apiUrl + '/blogposts/' + id,
     method: 'GET'
@@ -27,6 +28,9 @@ export const blogPostShow = (id) => {
 }
 
 export const blogPostUpdate = (id, blogpost, user) => {
+  console.log('this is user', user)
+  console.log('this is blogpost', blogpost)
+  console.log('this is id from blogposts.js', id)
   return axios({
     url: apiUrl + '/blogposts/' + id,
     method: 'PATCH',
