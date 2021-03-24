@@ -18,3 +18,10 @@ export const blogPostIndex = (blogpost, user) => {
     data: { blogpost }
   })
 }
+
+export const blogPostShow = (id) => {
+  return axios({
+    url: apiUrl + '/blogposts/' + id,
+    method: 'GET'
+  })
+}

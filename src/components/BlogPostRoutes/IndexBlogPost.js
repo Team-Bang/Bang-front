@@ -40,7 +40,7 @@ class BlogPostIndex extends Component {
       )
     }
     const blogpostJsx = blogposts.map(blogpost => (
-      <Link to={`/blogposts/${blogpost._id}`} key={blogpost}>
+      <Link to={`/blogposts/${blogpost._id}`} key={blogpost._id}>
         <li>
           {blogpost.title}
         </li>
