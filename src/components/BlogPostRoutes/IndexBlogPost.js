@@ -50,14 +50,13 @@ class BlogPostIndex extends Component {
             <h4 className="card-title">{blogpost.title}</h4>
           </Link>
           <p className="card-text">this is a test</p>
-          <p className="card-text"><small className="text-muted"><td input type={Date}>{blogpost.date.substring(0, 10)}</td></small></p>
+          <p className="card-text"><small className="text-muted">Created: <td input type={Date}>{blogpost.date.substring(0, 10)}</td></small></p>
         </div>
       </div>
     ))
     return (
       <div>
-        <h3>Blog</h3>
-        <h3>{blogpostJsx}</h3>
+        <h6>{blogpostJsx}</h6>
       </div>
     )
   }
