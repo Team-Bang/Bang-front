@@ -3,6 +3,12 @@ import { withRouter, Link } from 'react-router-dom'
 import { blogPostIndex } from '../../api/blogposts'
 import Spinner from 'react-bootstrap/Spinner'
 
+const cardContainerLayout = {
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'baseline'
+}
+
 class BlogPostIndex extends Component {
   constructor (props) {
     super(props)
@@ -31,9 +37,9 @@ class BlogPostIndex extends Component {
   }
 
   render () {
-    // function getRandomBlog (max) {
-    //   return Math.floor(Math.random() * Math.floor(max))
-    // }
+    function getRandomBlog (max) {
+      return Math.floor(Math.random() * Math.floor(max))
+    }
 
     const { blogposts } = this.state
     if (!blogposts) {
@@ -50,13 +56,26 @@ class BlogPostIndex extends Component {
             <h4 className="card-title">{blogpost.title}</h4>
           </Link>
           <p className="card-text">this is a test</p>
-          <p className="card-text"><small className="text-muted">Created: <td input type={Date}>{blogpost.date.substring(0, 10)}</td></small></p>
+          <p className="card-text"><small className="text-muted">Created: <span type={Date}>{blogpost.date.substring(0, 10)}</span></small></p>
         </div>
       </div>
+
     ))
     return (
-      <div>
-        <h6>{blogpostJsx}</h6>
+      <div style={cardContainerLayout}>
+        <div className="container">
+          <div className="row">
+            <div className="col-sm">
+              <h6>{blogpostJsx[getRandomBlog(blogpostJsx.length)]}</h6>
+            </div>
+            <div className="col-sm">
+              <h6>{blogpostJsx[getRandomBlog(blogpostJsx.length)]}</h6>
+            </div>
+            <div className="col-sm">
+              <h6>{blogpostJsx[getRandomBlog(blogpostJsx.length)]}</h6>
+            </div>
+          </div>
+        </div>
       </div>
     )
   }
