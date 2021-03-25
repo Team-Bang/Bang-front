@@ -40,3 +40,13 @@ export const blogPostUpdate = (id, blogpost, user) => {
     data: { blogpost }
   })
 }
+
+export const blogPostDelete = (id, user) => {
+  return axios({
+    url: apiUrl + '/blogposts/' + id,
+    method: 'DELETE',
+    headers: {
+      'Authorization': `Bearer ${user.token}`
+    }
+  })
+}
