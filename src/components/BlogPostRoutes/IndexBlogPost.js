@@ -31,6 +31,10 @@ class BlogPostIndex extends Component {
   }
 
   render () {
+    // function getRandomBlog (max) {
+    //   return Math.floor(Math.random() * Math.floor(max))
+    // }
+
     const { blogposts } = this.state
     if (!blogposts) {
       return (
@@ -40,21 +44,22 @@ class BlogPostIndex extends Component {
       )
     }
     const blogpostJsx = blogposts.map(blogpost => (
-      <Link to={`/blogposts/${blogpost._id}`} key={blogpost._id}>
-        <li>
-          {blogpost.title}
-        </li>
-      </Link>
+      <div className="card" key={blogpost._id}>
+        <div className="card-body">
+          <Link to={`/blogposts/${blogpost._id}`} key={blogpost._id}>
+            <h4 className="card-title">{blogpost.title}</h4>
+          </Link>
+          <p className="card-text">this is a test</p>
+          <p className="card-text"><small className="text-muted"><td input type={Date}>{blogpost.date.substring(0, 10)}</td></small></p>
+        </div>
+      </div>
     ))
     return (
       <div>
-        <h3>Blog Post</h3>
-        <ul>
-          {blogpostJsx}
-        </ul>
+        <h3>Blog</h3>
+        <h3>{blogpostJsx}</h3>
       </div>
     )
   }
 }
-
 export default withRouter(BlogPostIndex)
