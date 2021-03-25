@@ -58,15 +58,6 @@ class App extends Component {
             deleteAlert={this.deleteAlert}
           />
         ))}
-        <div className="jumbotron">
-          <h1 className="display-4">Hello, world!</h1>
-          <p className="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-          <hr className="my-4"/>
-          <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-          <p className="lead">
-            <a className="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-          </p>
-        </div>
         <main className="container">
           <Route path='/sign-up' render={() => (
             <SignUp msgAlert={this.msgAlert} setUser={this.setUser} />
@@ -84,6 +75,17 @@ class App extends Component {
           <AuthenticatedRoute user={user} exact path='/blogposts-create' render={() => (
             <BlogPostCreate msgAlert={this.msgAlert} user={user} />
           )} />
+          <Route exact path='/' render={() => (
+            <div className="jumbotron">
+              <h1 className="display-4">Hello, world!</h1>
+              <p className="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+              <hr className="my-4"/>
+              <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+              <p className="lead">
+                <a className="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+              </p>
+            </div>
+          )}/>
           <Route exact path='/' render={() => (
             <BlogPostIndex msgAlert={this.msgAlert} />
           )}/>
