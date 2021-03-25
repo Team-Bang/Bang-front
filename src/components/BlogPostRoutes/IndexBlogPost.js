@@ -51,13 +51,13 @@ class BlogPostIndex extends Component {
     }
     const blogpostJsx = blogposts.map(blogpost => (
       <div className="card" key={blogpost._id}>
-        <div className="card-body">
-          <Link to={`/blogposts/${blogpost._id}`} key={blogpost._id}>
+        <Link to={`/blogposts/${blogpost._id}`} key={blogpost._id}>
+          <div className="card-body">
             <h4 className="card-title">{blogpost.title}</h4>
-          </Link>
-          <p className="card-text">this is a test</p>
-          <p className="card-text"><small className="text-muted">Created: <span type={Date}>{blogpost.date.substring(0, 10)}</span></small></p>
-        </div>
+            <p className="card-text">this is a test</p>
+            <p className="card-text"><small className="text-muted">Created: <span type={Date}>{blogpost.date.substring(0, 10)}</span></small></p>
+          </div>
+        </Link>
       </div>
 
     ))
