@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { blogPostShow } from '../../api/blogposts'
-import { withRouter, Link } from 'react-router-dom'
+import { blogPostShow, blogPostDelete } from '../../api/blogposts'
+import { withRouter, Link, Redirect } from 'react-router-dom'
 import Spinner from 'react-bootstrap/Spinner'
 
 class ShowBlogPost extends Component {
@@ -8,7 +8,8 @@ class ShowBlogPost extends Component {
     super(props)
 
     this.state = {
-      blogpost: null
+      blogpost: null,
+      deleted: false
     }
   }
   componentDidMount () {
@@ -28,9 +29,33 @@ class ShowBlogPost extends Component {
         })
       })
   }
+  deleteBlogPost = () => {
+    const { msgAlert, user, match } = this.props
+    blogPostDelete(match.params.id, user)
+      .then(res => {
+        this.setState({ deleted: true })
+      })
+      .then(() => msgAlert({
+        heading: 'Deleted Blog Successfully',
+        message: 'Blog Deleted',
+        variant: 'success'
+      }))
+      .catch(error => {
+        msgAlert({
+          heading: 'Failed to delete blog',
+          message: 'Could not delete blog with error:' + error.message,
+          variant: 'danger'
+        })
+      })
+  }
+
   render () {
-    const { blogpost } = this.state
+    const { blogpost, deleted } = this.state
     let blogpostJsx = ''
+
+    if (deleted) {
+      return <Redirect to='/'/>
+    }
 
     if (!blogpost) {
       return (
@@ -44,6 +69,7 @@ class ShowBlogPost extends Component {
           <h3>{blogpost.title}</h3>
           <p>{blogpost.body}</p>
           <p>Written by: {blogpost.author}</p>
+          <button onClick={this.deleteBlogPost}>Delete</button>
           <button><Link to={'/blogposts/' + this.props.match.params.id + '/edit/'}>Update Post</Link></button>
         </div>
       )
@@ -52,7 +78,7 @@ class ShowBlogPost extends Component {
       <div className="row">
         <div className="col-sm-10 col-md-8 mx-auto mt-5">
           <h4>Post</h4>
-          <p>{blogpostJsx}</p>
+          <h4>{blogpostJsx}</h4>
         </div>
       </div>
     )
