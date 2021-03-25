@@ -48,7 +48,7 @@ class BlogPostUpdate extends Component {
   render () {
     const { blogpost, updated } = this.state
     if (updated) {
-      return <Redirect to={'/blogposts'} />
+      return <Redirect to={'/'} />
     }
 
     return (
