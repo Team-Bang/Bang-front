@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { withRouter, Link } from 'react-router-dom'
 import { blogPostIndex } from '../../api/blogposts'
 import Spinner from 'react-bootstrap/Spinner'
+import { Container, Row, Col } from 'react-grid-system'
 
 class BlogPostIndex extends Component {
   constructor (props) {
@@ -31,6 +32,9 @@ class BlogPostIndex extends Component {
   }
 
   render () {
+    // function getRandomBlog (max) {
+    //   return Math.floor(Math.random() * Math.floor(max))
+    // }
     const { blogposts } = this.state
     if (!blogposts) {
       return (
@@ -40,21 +44,43 @@ class BlogPostIndex extends Component {
       )
     }
     const blogpostJsx = blogposts.map(blogpost => (
-      <Link to={`/blogposts/${blogpost._id}`} key={blogpost._id}>
-        <li>
-          {blogpost.title}
-        </li>
-      </Link>
+      <div className="card" key={blogpost._id}>
+        <div className="card-body">
+          <Link to={`/blogposts/${blogpost._id}`} key={blogpost._id}>
+            <h4 className="card-title">{blogpost.title}</h4>
+          </Link>
+          <p className="card-text">this is a test</p>
+          <p className="card-text"><small className="text-muted"><td input type={Date}>{blogpost.date.substring(5, 10)}-{blogpost.date.substring(0, 4)}</td></small></p>
+        </div>
+      </div>
     ))
+    function change () {
+      for (let i = 0; i < 3; i++) {
+        return blogpostJsx
+      }
+    }
     return (
       <div>
-        <h3>Blog Post</h3>
-        <ul>
-          {blogpostJsx}
-        </ul>
+        <Container>
+          <Row>
+            <Col sm={4}>
+      One of three columns
+              <h3>{change()}</h3>
+            </Col>
+            <Col sm={4}>
+      One of three columns
+              <h3>{blogpostJsx}</h3>
+            </Col>
+            <Col sm={4}>
+      One of three columns
+              <h3>{blogpostJsx}</h3>
+            </Col>
+          </Row>
+        </Container>
+        <h3>Blog</h3>
+        <h3>{blogpostJsx}</h3>
       </div>
     )
   }
 }
-
 export default withRouter(BlogPostIndex)
