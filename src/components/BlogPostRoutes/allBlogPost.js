@@ -8,8 +8,13 @@ const cardContainerLayout = {
   flexDirection: 'column',
   alignItems: 'baseline'
 }
+const h6BlogStyle = {
+  display: 'flex',
+  flexWrap: 'wrap',
+  justifyContent: 'center'
+}
 
-class BlogPostIndex extends Component {
+class AllBlogPost extends Component {
   constructor (props) {
     super(props)
 
@@ -37,10 +42,6 @@ class BlogPostIndex extends Component {
   }
 
   render () {
-    function getRandomBlog (max) {
-      return Math.floor(Math.random() * Math.floor(max))
-    }
-
     const { blogposts } = this.state
     if (!blogposts) {
       return (
@@ -63,21 +64,9 @@ class BlogPostIndex extends Component {
     ))
     return (
       <div style={cardContainerLayout}>
-        <div className="container" id="indexPage-message">Check out these bangers!
-          <div className="row">
-            <div className="col-sm">
-              <h6>{blogpostJsx[getRandomBlog(blogpostJsx.length)]}</h6>
-            </div>
-            <div className="col-sm">
-              <h6>{blogpostJsx[getRandomBlog(blogpostJsx.length)]}</h6>
-            </div>
-            <div className="col-sm">
-              <h6>{blogpostJsx[getRandomBlog(blogpostJsx.length)]}</h6>
-            </div>
-          </div>
-        </div>
+        <h6 style={h6BlogStyle}>{blogpostJsx}</h6>
       </div>
     )
   }
 }
-export default withRouter(BlogPostIndex)
+export default withRouter(AllBlogPost)
