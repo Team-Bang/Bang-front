@@ -1,1 +1,13 @@
+$primary: #6a4c93; //#ddbea9;
+$secondary: #3a0ca3;
+
 @import '~bootstrap/scss/bootstrap';
+
+@media only screen and (max-width: 380px) {
+
+  h6 {
+
+  }
+
+
+}
