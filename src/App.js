@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react'
-import { Route } from 'react-router-dom'
+import { Route, Link } from 'react-router-dom'
 import { v4 as uuid } from 'uuid'
 
 import AuthenticatedRoute from './components/AuthenticatedRoute/AuthenticatedRoute'
@@ -15,6 +15,7 @@ import BlogPostIndex from './components/BlogPostRoutes/IndexBlogPost'
 import BlogPostCreate from './components/BlogPostRoutes/CreateBlogPost'
 import BlogPostShow from './components/BlogPostRoutes/ShowBlogPost'
 import BlogPostUpdate from './components/BlogPostRoutes/UpdateBlogPost'
+import AllBlogPost from './components/BlogPostRoutes/allBlogPost'
 
 class App extends Component {
   constructor (props) {
@@ -82,12 +83,15 @@ class App extends Component {
               <hr className="my-4"/>
               <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
               <p className="lead">
-                <a className="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+                <button><Link to={'/blogposts'}>View all Blog posts</Link></button>
               </p>
             </div>
           )}/>
           <Route exact path='/' render={() => (
             <BlogPostIndex msgAlert={this.msgAlert} />
+          )}/>
+          <Route user={user} exact path='/blogposts' render={() => (
+            <AllBlogPost user={user} msgAlert={this.msgAlert} />
           )}/>
           <Route path='/blogposts/:id' render={() => (
             <BlogPostShow user={user} msgAlert={this.msgAlert} />
