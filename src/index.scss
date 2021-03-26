@@ -7,9 +7,25 @@ $secondary: #3a0ca3;
   margin: 10px;
 }
 
-#indexPage-message {
+.h3Indexstyle {
+  max-width: 425px;
   text-align: center;
-  font-size: 50px;
+  overflow: hidden;
+  border-right: .15em solid $primary;
+  white-space: nowrap;
+  margin: 0 auto;
+  letter-spacing: .15em;
+  animation:
+    typing 5.0s steps(40, end),
+    blink-caret .75s step-end infinite;
+}
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: $primary; }
 }
 
 @media only screen and (max-width: 380px) {
@@ -18,7 +34,7 @@ $secondary: #3a0ca3;
 
   }
   #indexPage-message {
-    
+
   }
 
 
