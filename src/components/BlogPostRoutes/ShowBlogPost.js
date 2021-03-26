@@ -65,24 +65,24 @@ class ShowBlogPost extends Component {
       blogpostJsx = (
         <div>
           <h3>{blogpost.title}</h3>
-          <p>{blogpost.body}</p>
           <p>Written by: {blogpost.author}</p>
+          <p>{blogpost.body}</p>
         </div>
       )
     } else if (user && user._id !== blogpost.author) {
       blogpostJsx = (
         <div>
           <h3>{blogpost.title}</h3>
-          <p>{blogpost.body}</p>
           <p>Written by: {blogpost.author}</p>
+          <p>{blogpost.body}</p>
         </div>
       )
     } else if (user && user._id === blogpost.author) {
       blogpostJsx = (
         <div>
           <h3>{blogpost.title}</h3>
-          <p>{blogpost.body}</p>
           <p>Written by: {blogpost.author}</p>
+          <p>{blogpost.body}</p>
           <button onClick={this.deleteBlogPost}><Link to={'/'}>Delete</Link></button>
           <button><Link to={'/blogposts/' + this.props.match.params.id + '/edit/'}>Update Post</Link></button>
         </div>
