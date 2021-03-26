@@ -8,16 +8,13 @@ const cardContainerLayout = {
   flexDirection: 'column',
   alignItems: 'baseline'
 }
-
 class BlogPostIndex extends Component {
   constructor (props) {
     super(props)
-
     this.state = {
       blogposts: null
     }
   }
-
   componentDidMount () {
     const { msgAlert, user } = this.props
     blogPostIndex(user)
@@ -35,12 +32,10 @@ class BlogPostIndex extends Component {
         })
       })
   }
-
   render () {
     function getRandomBlog (max) {
       return Math.floor(Math.random() * Math.floor(max))
     }
-
     const { blogposts } = this.state
     if (!blogposts) {
       return (
@@ -54,12 +49,11 @@ class BlogPostIndex extends Component {
         <Link to={`/blogposts/${blogpost._id}`} key={blogpost._id}>
           <div className="card-body">
             <h4 className="card-title">{blogpost.title}</h4>
-            <p className="card-text">this is a test</p>
+            <p className="card-text">{blogpost.body}</p>
             <p className="card-text"><small className="text-muted">Created: {blogpost.date.substring(0, 10)}</small></p>
           </div>
         </Link>
       </div>
-
     ))
     return (
       <div style={cardContainerLayout}>
