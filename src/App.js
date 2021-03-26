@@ -15,7 +15,7 @@ import BlogPostIndex from './components/BlogPostRoutes/IndexBlogPost'
 import BlogPostCreate from './components/BlogPostRoutes/CreateBlogPost'
 import BlogPostShow from './components/BlogPostRoutes/ShowBlogPost'
 import BlogPostUpdate from './components/BlogPostRoutes/UpdateBlogPost'
-import AllBlogPost from './components/BlogPostRoutes/allBlogPost'
+import AllBlogPost from './components/BlogPostRoutes/AllBlogPost'
 
 class App extends Component {
   constructor (props) {
@@ -93,7 +93,7 @@ class App extends Component {
           <Route user={user} exact path='/blogposts' render={() => (
             <AllBlogPost user={user} msgAlert={this.msgAlert} />
           )}/>
-          <Route path='/blogposts/:id' render={() => (
+          <Route user={user} path='/blogposts/:id' render={() => (
             <BlogPostShow user={user} msgAlert={this.msgAlert} />
           )}/>
           <AuthenticatedRoute user={user} exact path='/blogposts/:id/edit' render={() => (

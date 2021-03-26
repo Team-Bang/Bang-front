@@ -56,7 +56,7 @@ class AllBlogPost extends Component {
           <div className="card-body">
             <h4 className="card-title">{blogpost.title}</h4>
             <p className="card-text">this is a test</p>
-            <p className="card-text"><small className="text-muted">Created: <span type={Date}>{blogpost.date.substring(0, 10)}</span></small></p>
+            <p className="card-text"><small className="text-muted">Created: {blogpost.date.substring(0, 10)}</small></p>
           </div>
         </Link>
       </div>
