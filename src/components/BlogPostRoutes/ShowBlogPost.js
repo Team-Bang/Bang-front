@@ -2,11 +2,9 @@ import React, { Component } from 'react'
 import { blogPostShow, blogPostDelete } from '../../api/blogposts'
 import { withRouter, Link, Redirect } from 'react-router-dom'
 import Spinner from 'react-bootstrap/Spinner'
-
 class ShowBlogPost extends Component {
   constructor (props) {
     super(props)
-
     this.state = {
       blogpost: null,
       deleted: false
@@ -48,28 +46,44 @@ class ShowBlogPost extends Component {
         })
       })
   }
-
   render () {
+    const { user } = this.props
     const { blogpost, deleted } = this.state
+    // console.log('This is user: ', user)
     let blogpostJsx = ''
-
     if (deleted) {
       return <Redirect to='/'/>
     }
-
     if (!blogpost) {
       return (
         <Spinner variant='primary' animation="border" role="status">
           <span className="sr-only">Loading...</span>
         </Spinner>
       )
-    } else {
+    }
+    if (!user) {
       blogpostJsx = (
         <div>
           <h3>{blogpost.title}</h3>
           <p>{blogpost.body}</p>
           <p>Written by: {blogpost.author}</p>
-          <button onClick={this.deleteBlogPost}>Delete</button>
+        </div>
+      )
+    } else if (user && user._id !== blogpost.author) {
+      blogpostJsx = (
+        <div>
+          <h3>{blogpost.title}</h3>
+          <p>{blogpost.body}</p>
+          <p>Written by: {blogpost.author}</p>
+        </div>
+      )
+    } else if (user && user._id === blogpost.author) {
+      blogpostJsx = (
+        <div>
+          <h3>{blogpost.title}</h3>
+          <p>{blogpost.body}</p>
+          <p>Written by: {blogpost.author}</p>
+          <button onClick={this.deleteBlogPost}><Link to={'/'}>Delete</Link></button>
           <button><Link to={'/blogposts/' + this.props.match.params.id + '/edit/'}>Update Post</Link></button>
         </div>
       )
@@ -84,5 +98,4 @@ class ShowBlogPost extends Component {
     )
   }
 }
-
 export default withRouter(ShowBlogPost)
