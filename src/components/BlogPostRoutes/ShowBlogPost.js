@@ -65,7 +65,8 @@ class ShowBlogPost extends Component {
       blogpostJsx = (
         <div>
           <h3>{blogpost.title}</h3>
-          <p>Written by: {blogpost.author}</p>
+          <p>Written by: {blogpost.authorName}</p>
+          <p>Written id: {blogpost.author}</p>
           <p>{blogpost.body}</p>
         </div>
       )
@@ -73,7 +74,8 @@ class ShowBlogPost extends Component {
       blogpostJsx = (
         <div>
           <h3>{blogpost.title}</h3>
-          <p>Written by: {blogpost.author}</p>
+          <p>Written by: {blogpost.authorName}</p>
+          <p>Written id: {blogpost.author}</p>
           <p>{blogpost.body}</p>
         </div>
       )
@@ -81,7 +83,8 @@ class ShowBlogPost extends Component {
       blogpostJsx = (
         <div>
           <h3>{blogpost.title}</h3>
-          <p>Written by: {blogpost.author}</p>
+          <p>Written by: {blogpost.authorName}</p>
+          <p>Written id: {blogpost.author}</p>
           <p>{blogpost.body}</p>
           <button onClick={this.deleteBlogPost}><Link to={'/'}>Delete</Link></button>
           <button><Link to={'/blogposts/' + this.props.match.params.id + '/edit/'}>Update Post</Link></button>

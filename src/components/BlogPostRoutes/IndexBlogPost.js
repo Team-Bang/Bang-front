@@ -49,6 +49,7 @@ class BlogPostIndex extends Component {
           <div className="card-body">
             <h4 className="card-title">{blogpost.title}</h4>
             <p className="card-text">{blogpost.body.substring(0, 25)}</p>
+            <p className="card-text">{blogpost.authorName}</p>
             <p className="card-text"><small className="text-muted">Created: {blogpost.date.substring(0, 10)}</small></p>
           </div>
         </Link>
