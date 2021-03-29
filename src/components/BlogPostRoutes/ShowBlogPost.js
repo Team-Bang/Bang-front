@@ -8,7 +8,8 @@ const showBangersStyle = {
   // fontFamily: 'Cormorant Garamond',
   // color: '$blogFont',
   fontSize: '20px',
-  textShadow: '1px 1px 1px #000000'
+  textShadow: '1px 1px 1px #000000',
+  color: 'white'
 }
 
 const borderParagraph = {
