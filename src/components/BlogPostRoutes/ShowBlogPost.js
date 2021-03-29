@@ -5,9 +5,10 @@ import Spinner from 'react-bootstrap/Spinner'
 
 const showBangersStyle = {
   textAlign: 'center',
-  fontFamily: 'Cormorant Garamond',
-  color: '$blogFont',
-  fontSize: '20px'
+  // fontFamily: 'Cormorant Garamond',
+  // color: '$blogFont',
+  fontSize: '20px',
+  textShadow: '1px 1px 1px #000000'
 }
 
 class ShowBlogPost extends Component {

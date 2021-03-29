@@ -16,6 +16,7 @@ import BlogPostCreate from './components/BlogPostRoutes/CreateBlogPost'
 import BlogPostShow from './components/BlogPostRoutes/ShowBlogPost'
 import BlogPostUpdate from './components/BlogPostRoutes/UpdateBlogPost'
 import AllBlogPost from './components/BlogPostRoutes/allBlogPost'
+import './index.scss'
 
 class App extends Component {
   constructor (props) {
