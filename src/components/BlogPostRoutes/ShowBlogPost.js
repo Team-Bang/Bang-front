@@ -11,6 +11,10 @@ const showBangersStyle = {
   textShadow: '1px 1px 1px #000000'
 }
 
+const borderParagraph = {
+  fontSize: 'large'
+}
+
 class ShowBlogPost extends Component {
   constructor (props) {
     super(props)
@@ -73,27 +77,24 @@ class ShowBlogPost extends Component {
     if (!user) {
       blogpostJsx = (
         <div>
-          <h3>{blogpost.title}</h3>
-          <p>Written by: {blogpost.authorName}</p>
-          <p>Written id: {blogpost.author}</p>
+          <h2>{blogpost.title}</h2>
+          <p style={borderParagraph}>Written by: {blogpost.authorName}<br/>Author Id: {blogpost.author}</p><hr/>
           <p>{blogpost.body}</p>
         </div>
       )
     } else if (user && user._id !== blogpost.author) {
       blogpostJsx = (
         <div>
-          <h3>{blogpost.title}</h3>
-          <p>Written by: {blogpost.authorName}</p>
-          <p>Written id: {blogpost.author}</p>
+          <h2>{blogpost.title}</h2>
+          <p style={borderParagraph}>Written by: {blogpost.authorName}</p><hr/>
           <p>{blogpost.body}</p>
         </div>
       )
     } else if (user && user._id === blogpost.author) {
       blogpostJsx = (
         <div>
-          <h3>{blogpost.title}</h3>
-          <p>Written by: {blogpost.authorName}</p>
-          <p>Written id: {blogpost.author}</p>
+          <h2>{blogpost.title}</h2>
+          <p style={borderParagraph}>Written by: {blogpost.authorName}</p><hr/>
           <p>{blogpost.body}</p>
           <button onClick={this.deleteBlogPost}><Link to={'/'}>Delete</Link></button>
           <button><Link to={'/blogposts/' + this.props.match.params.id + '/edit/'}>Update Post</Link></button>
