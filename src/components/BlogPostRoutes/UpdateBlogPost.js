@@ -48,12 +48,12 @@ class BlogPostUpdate extends Component {
   render () {
     const { blogpost, updated } = this.state
     if (updated) {
-      return <Redirect to={'/'} />
+      return <Redirect to={'/blogposts'} />
     }
 
     return (
       <div>
-        <h3>Update Post</h3>
+        <h3>Edit Post</h3>
         <BlogPostForm
           blogpost={blogpost}
           handleSubmit={this.handleSubmit}

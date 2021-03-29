@@ -15,7 +15,7 @@ import BlogPostIndex from './components/BlogPostRoutes/IndexBlogPost'
 import BlogPostCreate from './components/BlogPostRoutes/CreateBlogPost'
 import BlogPostShow from './components/BlogPostRoutes/ShowBlogPost'
 import BlogPostUpdate from './components/BlogPostRoutes/UpdateBlogPost'
-import AllBlogPost from './components/BlogPostRoutes/AllBlogPost'
+import AllBlogPost from './components/BlogPostRoutes/allBlogPost'
 
 class App extends Component {
   constructor (props) {
@@ -78,12 +78,12 @@ class App extends Component {
           )} />
           <Route exact path='/' render={() => (
             <div className="jumbotron">
-              <h1 className="display-4">Hello, world!</h1>
-              <p className="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+              <h1 className="display-4">Hello, World!</h1>
+              <p className="lead">We would like to welcome you to the most sensational way to express yourself.</p>
               <hr className="my-4"/>
-              <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+              <p>Are you ready to BANG IT OUT?</p>
               <p className="lead">
-                <button><Link to={'/blogposts'}>View all Blog posts</Link></button>
+                <button><Link to={'/blogposts'}>View all Bangers</Link></button>
               </p>
             </div>
           )}/>
@@ -93,7 +93,7 @@ class App extends Component {
           <Route user={user} exact path='/blogposts' render={() => (
             <AllBlogPost user={user} msgAlert={this.msgAlert} />
           )}/>
-          <Route user={user} path='/blogposts/:id' render={() => (
+          <Route user={user} path= '/blogposts/:id' render={() => (
             <BlogPostShow user={user} msgAlert={this.msgAlert} />
           )}/>
           <AuthenticatedRoute user={user} exact path='/blogposts/:id/edit' render={() => (

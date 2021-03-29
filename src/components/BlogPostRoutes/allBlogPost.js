@@ -3,15 +3,9 @@ import { withRouter, Link } from 'react-router-dom'
 import { blogPostIndex } from '../../api/blogposts'
 import Spinner from 'react-bootstrap/Spinner'
 
-const cardContainerLayout = {
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'baseline'
-}
 const h6BlogStyle = {
-  display: 'flex',
-  flexWrap: 'wrap',
-  justifyContent: 'center'
+  display: 'flow-root',
+  textAlign: 'center'
 }
 
 class AllBlogPost extends Component {
@@ -56,7 +50,7 @@ class AllBlogPost extends Component {
           <div className="card-body">
             <h4 className="card-title">{blogpost.title}</h4>
             <p className="card-text">{blogpost.authorName}</p>
-            <p className="card-text">{blogpost.body}</p>
+            <p className="card-text">{blogpost.body.substring(0, 25) + '...'}</p>
             <p className="card-text"><small className="text-muted">Created: {blogpost.date.substring(0, 10)}</small></p>
           </div>
         </Link>
@@ -64,7 +58,7 @@ class AllBlogPost extends Component {
 
     ))
     return (
-      <div style={cardContainerLayout}>
+      <div>
         <h6 style={h6BlogStyle}>{blogpostJsx}</h6>
       </div>
     )

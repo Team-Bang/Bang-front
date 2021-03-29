@@ -1,13 +1,32 @@
-$primary: #6a4c93; //#ddbea9;
+$primary: #6a4c93; //#6a4c93 - purple; //#ddbea9 - tanish color;
 $secondary: #3a0ca3;
+$blogFont: scale-color($primary, $lightness: 90%);
+
 
 @import '~bootstrap/scss/bootstrap';
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,700;1,500;1,900&display=swap');
+
+html {
+  scroll-behavior: smooth;
+}
+
+.jumbotron {
+  text-align: center;
+}
+
+
+#indexPage-message {
+  text-align: center;
+}
+
 
 .card {
   margin: 10px;
 }
 
 .h3Indexstyle {
+  color: #3C403D;
   max-width: 425px;
   text-align: center;
   overflow: hidden;
@@ -19,10 +38,12 @@ $secondary: #3a0ca3;
     typing 5.0s steps(40, end),
     blink-caret .75s step-end infinite;
 }
+
 @keyframes typing {
   from { width: 0 }
   to { width: 100% }
 }
+
 @keyframes blink-caret {
   from, to { border-color: transparent }
   50% { border-color: $primary; }
@@ -33,6 +54,7 @@ $secondary: #3a0ca3;
   h6 {
 
   }
+
   #indexPage-message {
 
   }
