@@ -10,7 +10,7 @@ import Button from 'react-bootstrap/Button'
 const siginDivStyle = {
   textAlign: 'center',
   // fontFamily: 'Cormorant Garamond',
-  // color: '$blogFont',
+  color: 'white',
   textShadow: '1px 1px 1px #000000'
 }
 class SignIn extends Component {
