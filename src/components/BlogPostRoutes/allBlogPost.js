@@ -29,7 +29,7 @@ class AllBlogPost extends Component {
       .then(res => this.setState({ blogposts: res.data.blogposts }))
       .then(() => msgAlert({
         heading: 'Loaded Blog Post!',
-        message: 'All posts ',
+        message: 'All posts',
         variant: 'success'
       }))
       .catch(error => {
@@ -55,6 +55,7 @@ class AllBlogPost extends Component {
         <Link to={`/blogposts/${blogpost._id}`} key={blogpost._id}>
           <div className="card-body">
             <h4 className="card-title">{blogpost.title}</h4>
+            <p className="card-text">{blogpost.authorName}</p>
             <p className="card-text">{blogpost.body}</p>
             <p className="card-text"><small className="text-muted">Created: {blogpost.date.substring(0, 10)}</small></p>
           </div>
