@@ -27,7 +27,7 @@ const alwaysOptions = (
 const Header = ({ user }) => (
   <Navbar bg="primary" variant="dark" expand="md">
     <Navbar.Brand href="#">
-      <img src="https://i.imgur.com/YuAiGPN.png" className="logo" />
+      <img src="https://i.imgur.com/ZebENLq.jpg" className="logo" />
     </Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">

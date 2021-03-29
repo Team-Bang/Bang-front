@@ -1,11 +1,12 @@
 $primary: #236FA0; //#6a4c93 - purple; //#ddbea9 - tanish color;
-$secondary: #3a0ca3;
+$secondary: #ff0299;
 $blogFont: scale-color($primary, $lightness: 90%);
 
 
 @import '~bootstrap/scss/bootstrap';
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,700;1,500;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap');
 
 html {
   scroll-behavior: smooth;
@@ -26,11 +27,56 @@ textarea {
   color: white;
 }
 
+.footer-group {
+  font-family: 'Roboto', sans-serif;
+  color: #000000;
+}
+
+.gitRepo {
+  color: #ffffff;
+  font-weight: bolder;
+  font-size: 20px;
+  text-shadow: 2px 2px 2px #000000;
+}
+
+.container-fluid a:hover {
+  color: #ff0299;
+  transition: .5s;
+  text-decoration: none;
+}
+
+.card-body {
+  // background-color: rgba(227, 209, 32, 0.2);
+  background-color: #ffffff;
+}
+
 body {
   background:transparent;
   font-family: 'Cormorant Garamond';
   font-size: 20px;
 
+}
+
+.bottom-footer{
+  border-top: 1px solid #00a651;
+  margin-top: 0px;
+  padding-top: 7px;
+  color: #00a651;
+}
+
+.footer-nav li{
+  display: inline;
+  padding: 0px 40px;
+}
+
+.footer-nav a{
+  color: grey;
+  text-decoration: none;
+}
+
+.jumbotron.fixed-bottom {
+  margin-bottom: 0 !important;
+  background-color:rgba(14%, 44%, 63%, 0.8) ;
 }
 
 .card-text {
