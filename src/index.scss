@@ -15,16 +15,19 @@ html {
   background-size: cover;
 }
 
+
+
 .jumbotron {
   text-align: center;
   background: transparent;
+  color: white;
 }
 
-Body {
+body {
   background:transparent;
   font-family: 'Cormorant Garamond';
   font-size: 20px;
-  
+
 }
 
 .card-text {
@@ -36,7 +39,7 @@ Body {
 }
 
 .display-4 {
-  font-size: 4.5em;
+  font-size: 70px;
   font-weight: bolder;
   transition: .5s;
   text-shadow: 2px 2px 2px #000000;
@@ -50,8 +53,12 @@ Body {
   margin: 10px;
 }
 
+h2 {
+  font-stretch: expanded;
+}
+
 .h3Indexstyle {
-  color: #3C403D;
+  color: white;
   max-width: 425px;
   text-align: center;
   overflow: hidden;
