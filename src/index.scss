@@ -46,8 +46,8 @@ textarea {
 }
 
 .card-body {
-  // background-color: rgba(227, 209, 32, 0.2);
-  background-color: #ffffff;
+  // background-color: rgba(227, 209, 32, 0.6);
+  background-color: #ffff;
 }
 
 body {
@@ -75,8 +75,9 @@ body {
 }
 
 .jumbotron.fixed-bottom {
+  position: relative;
   margin-bottom: 0 !important;
-  background-color:rgba(14%, 44%, 63%, 0.8) ;
+  background-color:rgba(14%, 44%, 63%, 0.4) ;
 }
 
 .card-text {

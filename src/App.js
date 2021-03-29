@@ -101,7 +101,7 @@ class App extends Component {
             <BlogPostUpdate msgAlert={this.msgAlert} user={user} />
           )}/>
         </main>
-        <div className="jumbotron jumbotron-fluid position-fixed fixed-bottom footer-group">
+        <div className="jumbotron jumbotron-fluid fixed-bottom footer-group mt-5">
           <div className="container-fluid">
             <p>Copyright &copy; 2021 - by <a href="https://github.com/Team-Bang" className="button gitRepo" data-abc="true">Team Bang</a></p>
           </div>
