@@ -48,7 +48,7 @@ class BlogPostIndex extends Component {
         <Link to={`/blogposts/${blogpost._id}`} key={blogpost._id}>
           <div className="card-body">
             <h4 className="card-title">{blogpost.title}</h4>
-            <p className="card-text">{blogpost.body.substring(0, 25)}</p>
+            <p className="card-text">{blogpost.body.substring(0, 25) + '...'}</p>
             <p className="card-text">{blogpost.authorName}</p>
             <p className="card-text"><small className="text-muted">Created: {blogpost.date.substring(0, 10)}</small></p>
           </div>
@@ -59,13 +59,18 @@ class BlogPostIndex extends Component {
       <div style={cardContainerLayout}>
         <div className="container" id="indexPage-message"><h3 className="h3Indexstyle">Check out these bangers!</h3>
           <div className="row">
-            <div className="col-sm">
+            <div className="col-md">
               <h6>{blogpostJsx[getRandomBlog(blogpostJsx.length)]}</h6>
             </div>
-            <div className="col-sm">
+            <div className="col-md">
               <h6>{blogpostJsx[getRandomBlog(blogpostJsx.length)]}</h6>
             </div>
-            <div className="col-sm">
+          </div>
+          <div className="row">
+            <div className="col-md">
+              <h6>{blogpostJsx[getRandomBlog(blogpostJsx.length)]}</h6>
+            </div>
+            <div className="col-md">
               <h6>{blogpostJsx[getRandomBlog(blogpostJsx.length)]}</h6>
             </div>
           </div>

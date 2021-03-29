@@ -2,6 +2,14 @@ import React, { Component } from 'react'
 import { blogPostShow, blogPostDelete } from '../../api/blogposts'
 import { withRouter, Link, Redirect } from 'react-router-dom'
 import Spinner from 'react-bootstrap/Spinner'
+
+const showBangersStyle = {
+  textAlign: 'center',
+  fontFamily: 'Cormorant Garamond',
+  color: '$blogFont',
+  fontSize: '20px'
+}
+
 class ShowBlogPost extends Component {
   constructor (props) {
     super(props)
@@ -92,10 +100,9 @@ class ShowBlogPost extends Component {
       )
     }
     return (
-      <div className="row">
+      <div className="row" style={showBangersStyle}>
         <div className="col-sm-10 col-md-8 mx-auto mt-5">
-          <h4>Post</h4>
-          <h4>{blogpostJsx}</h4>
+          {blogpostJsx}
         </div>
       </div>
     )

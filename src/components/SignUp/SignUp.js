@@ -7,6 +7,12 @@ import messages from '../AutoDismissAlert/messages'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
+const siginDivStyle = {
+  textAlign: 'center',
+  fontFamily: 'Cormorant Garamond',
+  color: '$blogFont'
+}
+
 class SignUp extends Component {
   constructor (props) {
     super(props)
@@ -50,7 +56,7 @@ class SignUp extends Component {
     const { email, password, passwordConfirmation } = this.state
 
     return (
-      <div className="row">
+      <div className="row" style={siginDivStyle}>
         <div className="col-sm-10 col-md-8 mx-auto mt-5">
           <h3>Sign Up</h3>
           <Form onSubmit={this.onSignUp}>
