@@ -79,7 +79,7 @@ class ShowBlogPost extends Component {
       blogpostJsx = (
         <div>
           <h2>{blogpost.title}</h2>
-          <p style={borderParagraph}>Written by: {blogpost.authorName}<br/>Author Id: {blogpost.author}</p><hr/>
+          <p style={borderParagraph}>Written by: {blogpost.authorName}</p><hr/>
           <p>{blogpost.body}</p>
         </div>
       )
