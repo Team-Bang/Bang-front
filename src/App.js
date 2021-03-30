@@ -18,6 +18,9 @@ import BlogPostUpdate from './components/BlogPostRoutes/UpdateBlogPost'
 import AllBlogPost from './components/BlogPostRoutes/allBlogPost'
 import './index.scss'
 
+// COMMENT COMPONENTS
+import CommentCreate from './components/CommentRoutes/CreateComment'
+
 class App extends Component {
   constructor (props) {
     super(props)
@@ -100,6 +103,10 @@ class App extends Component {
           <AuthenticatedRoute user={user} exact path='/blogposts/:id/edit' render={() => (
             <BlogPostUpdate msgAlert={this.msgAlert} user={user} />
           )}/>
+          {/* COMMENT ROUTES */}
+          <AuthenticatedRoute user={user} exact path='/blogposts/:id' render={() => (
+            <CommentCreate msgAlert={this.msgAlert} user={user} />
+          )} />
         </main>
         <div className="jumbotron jumbotron-fluid fixed-bottom footer-group mt-5">
           <div className="container-fluid">
