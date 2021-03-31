@@ -3,9 +3,9 @@ const CommentForm = ({ comment, handleSubmit, handleChange }) => (
   <form onSubmit={handleSubmit}>
     <div className="form-group">
       <label></label>
-      <textarea className="form-control" rows="3"
+      <textarea className="form-control"
         placeholder='Enter Comment'
-        name='comment'
+        name='reply'
         value={comment.reply}
         onChange={handleChange}
       />

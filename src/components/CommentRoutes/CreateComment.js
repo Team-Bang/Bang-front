@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import CommentForm from '../CommentForm/CommentForm'
 import { commentCreate } from '../../api/comments'
-import { withRouter } from 'react-router-dom'
+import { withRouter, Redirect } from 'react-router-dom'
 
 class CommentCreate extends Component {
   constructor (props) {
@@ -9,7 +9,8 @@ class CommentCreate extends Component {
     this.state = {
       comment: {
         reply: ''
-      }
+      },
+      created: false
     }
   }
   handleChange = event => {
@@ -24,8 +25,9 @@ class CommentCreate extends Component {
     event.preventDefault()
     const { user, msgAlert, match } = this.props
     const { comment } = this.state
-    console.log(comment)
+    console.log(`this is user ${user}, this is id ${match.params.id}, this is comment ${comment}`)
     commentCreate(comment, user, match.params.id)
+      .then(res => this.setState({ created: true }))
       .then(() => msgAlert({
         heading: 'Created comment Successfully',
         message: 'Showing created comment',
@@ -40,7 +42,11 @@ class CommentCreate extends Component {
       })
   }
   render () {
-    const { comment } = this.state
+    const { comment, created } = this.state
+    const { match } = this.props
+    if (created) {
+      return <Redirect to={'/blogposts/' + match.params.id} />
+    }
     return (
       <div className='row'>
         <div className='col-sm-10 col-md-8 mx-auto mt-5'>

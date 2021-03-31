@@ -63,7 +63,8 @@ class ShowBlogPost extends Component {
   render () {
     const { user } = this.props
     const { blogpost, deleted } = this.state
-    // console.log('This is user: ', user)
+    // console.log('This is user: ' + user)
+    console.log(blogpost)
     let blogpostJsx = ''
     if (deleted) {
       return <Redirect to='/'/>
@@ -89,6 +90,7 @@ class ShowBlogPost extends Component {
           <h2>{blogpost.title}</h2>
           <p style={borderParagraph}>Written by: {blogpost.authorName}</p><hr/>
           <p>{blogpost.body}</p>
+          <button><Link to={'/blogposts/' + this.props.match.params.id + '/comments/'}>Create Comment</Link></button>
         </div>
       )
     } else if (user && user._id === blogpost.author) {
@@ -99,6 +101,7 @@ class ShowBlogPost extends Component {
           <p>{blogpost.body}</p>
           <button onClick={this.deleteBlogPost}><Link to={'/'}>Delete</Link></button>
           <button><Link to={'/blogposts/' + this.props.match.params.id + '/edit/'}>Update Post</Link></button>
+          <button><Link to={'/blogposts/' + this.props.match.params.id + '/comments'}>Create Comment</Link></button>
         </div>
       )
     }
@@ -106,6 +109,7 @@ class ShowBlogPost extends Component {
       <div className="row" style={showBangersStyle}>
         <div className="col-sm-10 col-md-8 mx-auto mt-5">
           {blogpostJsx}
+          <button><Link to={'/blogposts/' + this.props.match.params.id + '/viewcomments'}>View Comments</Link></button>
         </div>
       </div>
     )
