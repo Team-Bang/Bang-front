@@ -36,6 +36,7 @@ class BlogPostIndex extends Component {
       return Math.floor(Math.random() * Math.floor(max))
     }
     const { blogposts } = this.state
+    console.log(blogposts)
     if (!blogposts) {
       return (
         <Spinner animation="border" role="status">

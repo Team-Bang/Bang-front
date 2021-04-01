@@ -12,14 +12,6 @@ const BlogPostForm = ({ blogpost, handleSubmit, handleChange }) => (
     </div>
     <div className="form-group">
       <label></label>
-      <textarea className="form-control"
-        placeholder='Enter Author Name'
-        name='authorName'
-        value={blogpost.authorName}
-        onChange={handleChange}></textarea>
-    </div>
-    <div className="form-group">
-      <label></label>
       <textarea className="form-control" id="blog-body-form" rows="5"
         placeholder='Enter Post Body'
         name='body'
