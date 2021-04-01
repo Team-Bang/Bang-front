@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { blogPostShow, blogPostDelete } from '../../api/blogposts'
 import { withRouter, Link, Redirect } from 'react-router-dom'
 import Spinner from 'react-bootstrap/Spinner'
+import CommentsView from '../CommentRoutes/ViewComments'
 
 const showBangersStyle = {
   textAlign: 'center',
@@ -21,7 +22,8 @@ class ShowBlogPost extends Component {
     super(props)
     this.state = {
       blogpost: null,
-      deleted: false
+      deleted: false,
+      commentClicked: false
     }
   }
   componentDidMount () {
@@ -40,6 +42,13 @@ class ShowBlogPost extends Component {
           variant: 'danger'
         })
       })
+  }
+
+  toggleComments = (event) => {
+    // this.setState is only possible because of extends Component
+    // never override the value of state by hard coding it
+    // always use setState()
+    this.setState({ commentClicked: !this.state.commentClicked })
   }
   deleteBlogPost = () => {
     const { msgAlert, user, match } = this.props
@@ -109,7 +118,8 @@ class ShowBlogPost extends Component {
       <div className="row" style={showBangersStyle}>
         <div className="col-sm-10 col-md-8 mx-auto mt-5">
           {blogpostJsx}
-          <button><Link to={'/blogposts/' + this.props.match.params.id + '/viewcomments'}>View Comments</Link></button>
+          <button onClick={this.toggleComments}>{this.state.commentClicked ? 'Close' : 'View Comments'}</button>
+          {this.state.commentClicked ? <CommentsView /> : ''}
         </div>
       </div>
     )

@@ -3,10 +3,11 @@ import { commentView } from '../../api/comments'
 import { withRouter } from 'react-router-dom'
 import { v4 as uuidv4 } from 'uuid'
 
-const showBangersStyle = {
-  textAlign: 'center',
+const commentsStyle = {
+  textAlign: 'right',
   fontSize: '20px',
-  color: 'black'
+  color: 'black',
+  fontFamily: 'New Tegomin'
 }
 
 class CommentsView extends Component {
@@ -23,16 +24,15 @@ class CommentsView extends Component {
   }
   render () {
     const { comment } = this.state
-    console.log(comment)
     const commentJsx = comment.map(comment => (
       <div className="card" key={uuidv4()}>
-        <div className="card-body" >
+        <div className="card-body">
           <h4 className="card-title">{comment}</h4>
         </div>
       </div>
     ))
     return (
-      <div className="row" style={showBangersStyle}>
+      <div className="row" style={commentsStyle}>
         <div className="col-sm-10 col-md-8 mx-auto mt-5">
           {commentJsx}
         </div>
