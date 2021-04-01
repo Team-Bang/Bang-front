@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { commentView } from '../../api/comments'
 import { withRouter } from 'react-router-dom'
+import { v4 as uuidv4 } from 'uuid'
 
 const showBangersStyle = {
   textAlign: 'center',
@@ -12,31 +13,24 @@ class CommentsView extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      comment: null
+      comment: []
     }
   }
   componentDidMount () {
     const { match } = this.props
     commentView(match.params.id)
-      .then(res => this.setState({ comment: res.data.comments.map(comments => JSON.stringify(comments.reply)) }))
+      .then(res => this.setState({ comment: res.data.comments.map(comments => comments.reply) }))
   }
-  // create jsx that loops over the returned arr of coments
-  // forEa comment - create new comments component(commentComponent) for ea element
   render () {
     const { comment } = this.state
-    console.log('this is comment ' + comment)
-    console.log('this is stringyify comment ' + JSON.stringify(comment))
-    // for (let i = 0; i < comment.length; i++) {
-    //   const newJsx = comment[i]
-    //   console.log(newJsx)
-    // }
-    const commentJsx = (
-      <div className="card">
-        <div className="card-body">
+    console.log(comment)
+    const commentJsx = comment.map(comment => (
+      <div className="card" key={uuidv4()}>
+        <div className="card-body" >
           <h4 className="card-title">{comment}</h4>
         </div>
       </div>
-    )
+    ))
     return (
       <div className="row" style={showBangersStyle}>
         <div className="col-sm-10 col-md-8 mx-auto mt-5">
