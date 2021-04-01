@@ -4,11 +4,8 @@ import { withRouter } from 'react-router-dom'
 
 const showBangersStyle = {
   textAlign: 'center',
-  // fontFamily: 'Cormorant Garamond',
-  // color: '$blogFont',
   fontSize: '20px',
-  textShadow: '1px 1px 1px #000000',
-  color: 'white'
+  color: 'black'
 }
 
 class CommentsView extends Component {
@@ -21,11 +18,18 @@ class CommentsView extends Component {
   componentDidMount () {
     const { match } = this.props
     commentView(match.params.id)
-      .then(res => this.setState({ comment: res.data.comments.map(comments => comments.reply) }))
+      .then(res => this.setState({ comment: res.data.comments.map(comments => JSON.stringify(comments.reply)) }))
   }
+  // create jsx that loops over the returned arr of coments
+  // forEa comment - create new comments component(commentComponent) for ea element
   render () {
     const { comment } = this.state
     console.log('this is comment ' + comment)
+    console.log('this is stringyify comment ' + JSON.stringify(comment))
+    // for (let i = 0; i < comment.length; i++) {
+    //   const newJsx = comment[i]
+    //   console.log(newJsx)
+    // }
     const commentJsx = (
       <div className="card">
         <div className="card-body">
