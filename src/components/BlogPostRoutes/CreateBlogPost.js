@@ -27,7 +27,6 @@ class BlogPostCreate extends Component {
     const { user, msgAlert } = this.props
     const { blogpost } = this.state
     console.log(`this is user ${user}`)
-
     blogPostCreate(blogpost, user)
       .then(res => this.setState({ createdPostId: res.data.blogpost._id }))
       .then(() => msgAlert({

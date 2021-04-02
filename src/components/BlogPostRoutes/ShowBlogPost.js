@@ -6,15 +6,15 @@ import CommentsView from '../CommentRoutes/ViewComments'
 
 const showBangersStyle = {
   textAlign: 'center',
-  // fontFamily: 'Cormorant Garamond',
-  // color: '$blogFont',
   fontSize: '20px',
   textShadow: '1px 1px 1px #000000',
   color: 'white'
 }
 
 const borderParagraph = {
-  fontSize: 'large'
+  fontSize: 'large',
+  borderRadius: '10px',
+  backgroundColor: 'rgba(0,0,0,.4)'
 }
 
 class ShowBlogPost extends Component {
@@ -88,8 +88,8 @@ class ShowBlogPost extends Component {
     if (!user) {
       blogpostJsx = (
         <div>
-          <h2>{blogpost.title}</h2>
-          <p style={borderParagraph}>Written by: {blogpost.authorName}</p><hr/>
+          <h2>{blogpost.title}</h2><hr></hr>
+          <p>Written by: {blogpost.username}</p><hr/>
           <p>{blogpost.body}</p>
         </div>
       )
@@ -97,7 +97,7 @@ class ShowBlogPost extends Component {
       blogpostJsx = (
         <div>
           <h2>{blogpost.title}</h2>
-          <p style={borderParagraph}>Written by: {blogpost.authorName}</p><hr/>
+          <p>Written by: {blogpost.username}</p><hr/>
           <p>{blogpost.body}</p>
           <button><Link to={'/blogposts/' + this.props.match.params.id + '/comments/'}>Create Comment</Link></button>
         </div>
@@ -106,7 +106,7 @@ class ShowBlogPost extends Component {
       blogpostJsx = (
         <div>
           <h2>{blogpost.title}</h2>
-          <p style={borderParagraph}>Written by: {blogpost.authorName}</p><hr/>
+          <p>Written by: {blogpost.username}</p><hr/>
           <p>{blogpost.body}</p>
           <button onClick={this.deleteBlogPost}><Link to={'/'}>Delete</Link></button>
           <button><Link to={'/blogposts/' + this.props.match.params.id + '/edit/'}>Update Post</Link></button>
@@ -116,7 +116,7 @@ class ShowBlogPost extends Component {
     }
     return (
       <div className="row" style={showBangersStyle}>
-        <div className="col-sm-10 col-md-8 mx-auto mt-5">
+        <div style={borderParagraph} className="col-sm-10 col-md-8 mx-auto mt-5">
           {blogpostJsx}
           <button onClick={this.toggleComments}>{this.state.commentClicked ? 'Close' : 'View Comments'}</button>
           {this.state.commentClicked ? <CommentsView /> : ''}
